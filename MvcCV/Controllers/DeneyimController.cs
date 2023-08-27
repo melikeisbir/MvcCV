@@ -28,5 +28,28 @@ namespace MvcCV.Controllers
             repo.TAdd(p);
             return RedirectToAction("Index");
         }
+        public ActionResult DeneyimSil(int id)
+        {
+            TblDeneyimlerim t = repo.Find(X => X.ID == id);
+            repo.TDelete(t);
+            return RedirectToAction("Index");
+        }
+        [HttpGet]
+        public ActionResult DeneyimGetir(int id)
+        {
+            TblDeneyimlerim t = repo.Find(X => X.ID == id);
+            return View(t);
+        }
+        [HttpPost]
+        public ActionResult DeneyimGetir(TblDeneyimlerim p)
+        {
+            TblDeneyimlerim t = repo.Find(X => X.ID == p.ID);
+            t.Baslik = p.Baslik;
+            t.AltBaslik= p.AltBaslik;
+            t.Tarih= p.Tarih;
+            t.Aciklama= p.Aciklama;
+            repo.TUpdate(t);
+            return RedirectToAction("Index");
+        }
     }
 }
