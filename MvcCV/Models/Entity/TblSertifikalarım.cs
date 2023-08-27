@@ -12,7 +12,7 @@ namespace MvcCV.Models.Entity
     using System;
     using System.Collections.Generic;
     
-    public partial class TblSertifikalarÄ±m
+    public partial class TblSertifikalarým
     {
         public int ID { get; set; }
         public string Aciklama { get; set; }
