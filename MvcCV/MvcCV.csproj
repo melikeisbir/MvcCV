@@ -132,6 +132,7 @@
     <Compile Include="Controllers\DeneyimController.cs" />
     <Compile Include="Controllers\HakkimdaController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\YetenekController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -168,7 +169,7 @@
     <Compile Include="Models\Entity\Tbliletisim.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\Entity\TblSertifikalarım.cs">
+    <Compile Include="Models\Entity\TblSertifikalarim.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Entity\TblYeteneklerim.cs">
@@ -2360,6 +2361,7 @@
     <Content Include="Views\Deneyim\Index.cshtml" />
     <Content Include="Views\Deneyim\DeneyimEkle.cshtml" />
     <Content Include="Views\Deneyim\DeneyimGetir.cshtml" />
+    <Content Include="Views\Yetenek\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -6,7 +6,7 @@ using System.Web;
 
 namespace MvcCV.Repositories
 {
-    public class SertifikaRepository : GenericRepository<TblSertifikalarım>
+    public class SertifikaRepository : GenericRepository<TblSertifikalarim>
     {
     }
 }
