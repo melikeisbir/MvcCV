@@ -4,7 +4,8 @@
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
-
+@{string renk = ""; }
+@{ string labelrenk = ""; }
 <!DOCTYPE html>
 <html>
 <body class="hold-transition sidebar-mini">
@@ -20,27 +21,65 @@
                                 </div>
                                 <!-- /.card-header -->
                                 <div class="card-body">
+                                    <a href="/Yetenek/YeniYetenek/" class="btn btn-info">Yeni Yetenek Ekle</a>
+                                    <br /><br />
                                     <table class="table table-bordered">
                                         <thead>
                                             <tr>
                                                 <th style="width: 10px">#</th>
-                                                <th>Task</th>
-                                                <th>Progress</th>
-                                                <th style="width: 40px">Label</th>
+                                                <th>Yetenek</th>
+                                                <th style="width: 10cm">Derece</th>
+                                                <th>Oran</th>
+                                                <th>Düzenle</th>
+                                                <th>Sil</th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             @foreach(var item in Model)
                                             {
+                                                if(item.Oran>= 0 && item.Oran <= 1)
+                                                {
+                                                    renk = "progres-bar bg-danger";
+                                                    labelrenk = "badge bg-danger";
+                                                }
+                                                if (item.Oran >= 2 && item.Oran <= 3)
+                                                {
+                                                    renk = "progres-bar bg-warning";
+                                                    labelrenk = "badge bg-warning";
+                                                }
+                                                if (item.Oran>=4 && item.Oran<=5)
+                                                {
+                                                    renk = "progres-bar bg-primary";
+                                                    labelrenk = "badge bg-primary";
+                                                }
+                                                if (item.Oran >= 6 && item.Oran <= 7)
+                                                {
+                                                    renk = "progres-bar bg-success";
+                                                    labelrenk = "badge bg-success";
+                                                }
                                             <tr>
                                                 <td>@item.ID</td>
                                                 <td>@item.Yetenek</td>
                                                 <td>
                                                     <div class="progress progress-xs">
-                                                        <div class="progress-bar progress-bar-danger" style="width: 55%"></div>
+                                                        <div class="@renk" style="width: @item.Oran%"></div>
                                                     </div>
                                                 </td>
-                                                <td><span class="badge bg-danger">55%</span></td>
+                                                <td><span class="@labelrenk">@item.Oran%</span></td>
+                                                <td>
+                                                    <a class="btn btn-info btn-sm" href="/Yetenek/YetenekDuzenle/@item.ID">
+                                                        <i class="fas fa-pencil-alt">
+                                                        </i>
+                                                        Düzenle
+                                                    </a>
+                                                </td>
+                                                <td>
+                                                    <a class="btn btn-danger btn-sm" href="/Yetenek/YetenekSil/@item.ID">
+                                                        <i class="fas fa-trash">
+                                                        </i>
+                                                        Sil
+                                                    </a>
+                                                </td>
                                             </tr>
                                             }
                                         </tbody>
