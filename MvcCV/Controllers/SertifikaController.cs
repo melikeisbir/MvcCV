@@ -21,6 +21,7 @@ namespace MvcCV.Controllers
         public ActionResult SertifikaGetir(int id)
         {
             var sertifika = repo.Find(x =>x.ID == id);
+            ViewBag.d = id;
             return View(sertifika);
         }
         [HttpPost]
@@ -41,6 +42,12 @@ namespace MvcCV.Controllers
         public ActionResult YeniSertifika(TblSertifikalarim p)
         {
             repo.TAdd(p);
+            return RedirectToAction("Index");
+        }
+        public ActionResult SertifikaSil(int id)
+        {
+            var sertifika=repo.Find(x=> x.ID == id);
+            repo.TDelete(sertifika);
             return RedirectToAction("Index");
         }
     }
