@@ -72,6 +72,7 @@
           </Key>
           <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Aciklama" Type="varchar" MaxLength="250" />
+          <Property Name="Tarih" Type="varchar" MaxLength="30" />
         </EntityType>
         <EntityType Name="TblYeteneklerim">
           <Key>
@@ -180,6 +181,7 @@
           </Key>
           <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Aciklama" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="Tarih" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -266,6 +268,7 @@
           <EntitySetMapping Name="TblSertifikalarim">
             <EntityTypeMapping TypeName="DbCVModel.TblSertifikalarim">
               <MappingFragment StoreEntitySet="TblSertifikalarim">
+                <ScalarProperty Name="Tarih" ColumnName="Tarih" />
                 <ScalarProperty Name="Aciklama" ColumnName="Aciklama" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>
