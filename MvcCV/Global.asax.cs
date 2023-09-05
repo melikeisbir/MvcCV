@@ -12,6 +12,8 @@ namespace MvcCV
     {
         protected void Application_Start()
         {
+            GlobalFilters.Filters.Add(new AuthorizeAttribute()); //bütün projeye uygulanacak. authorize attributu proje
+                                                                 //seviyesine çıkınca hiçbir sasyfaya erişim sağlanmıyor.
             AreaRegistration.RegisterAllAreas();
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
